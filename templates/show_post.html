@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>帖子内容</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            background-color: #f2f2f2;
+        }
+        .post-container {
+            max-width: 800px;
+            margin: 2em;
+            padding: 2em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+        }
+        .author {
+            font-weight: bold;
+            margin-bottom: 1em;
+        }
+        .time {
+            color: #666;
+            margin-bottom: 1em;
+        }
+        .content {
+            text-align: left;
+            line-height: 1.6;
+        }
+        .back-link {
+            margin-top: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="post-container">
+        <h1>{{ post['title'] }}</h1>
+        <p class="author">作者：{{ post['author'] }}</p>
+        <p class="time">发表时间：{{ post['time'] }}</p>
+        <div class="content">
+            {{ post['content'] }}
+        </div>
+        <a class="back-link" href="{{ url_for('forum') }}">返回论坛</a>
+    </div>
+</body>
+</html>

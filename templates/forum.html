@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>论坛页面</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            background-color: #f2f2f2;
+            background-image: url("/static/images/background.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            margin: 2em;
+            padding: 1em;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+        }
+        th, td {
+            padding: 0.5em;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        a {
+            margin: 1em;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+<body>
+    <h1>论坛</h1>
+    <table>
+        <tr>
+            <th>帖子名称</th>
+            <th>发帖人</th>
+            <th>时间</th>
+        </tr>
+        {% for post in posts %}
+        <tr>
+            <td><a href="{{ url_for('show_post', post_id=loop.index-1) }}">{{ post['title'] }}</a></td>
+            <td>{{ post['author'] }}</td>
+            <td>{{ post['time'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('post') }}">点击发帖</a>
+</body>
+</html>

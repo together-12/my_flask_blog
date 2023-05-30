@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>发帖页面</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            background-image: url("/static/images/background.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2em;
+            padding: 2em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+        }
+        label {
+            margin: 0.5em;
+        }
+        input[type="text"], input[type="password"], textarea {
+            padding: 0.5em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+<body>
+    <form action="{{ url_for('post') }}" method="post">
+        <label>用户名：</label>
+        <input type="text" name="username"><br>
+        <label>标题：</label>
+        <input type="text" name="title"><br>
+        <label>内容：</label>
+        <textarea name="content"></textarea><br>
+        <input type="submit" value="发帖">
+    </form>
+</body>
+</html>
